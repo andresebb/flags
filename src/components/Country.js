@@ -4,7 +4,7 @@ import "../assets/styles/components/country.scss";
 const Country = ({ flag, name, region, population, capital }) => {
   return (
     <div className="box-country">
-      <img src={flag} alt="" />
+      <img loading="Lazy" src={flag} alt="" />
       <div className="details">
         <h2>{name}</h2>
         <p>
