@@ -12,11 +12,21 @@ const CountryList = () => {
   /* console.log("el estado global es", countryList); */
 
   /*   const [countryList, setCountryList] = useState([]); */
+  const countryListByName = useSelector((state) => state.countryListByName);
 
   const countryList = useSelector((state) => {
-    if (state.filterByRegion !== "") {
+    if (state.countryFilteredByRegion.length > 0) {
       return state.countryFilteredByRegion;
     }
+
+    if (state.filterByRegion !== "" && countryListByName.length === 0) {
+      return state.countryFilteredByRegion;
+    }
+
+    if (countryListByName.length > 0) {
+      return countryListByName;
+    }
+
     return state.countryList;
   });
 

@@ -5,10 +5,13 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import reducer from "./reducers/index";
 import FilterByRegione from "./components/FilterByRegion";
+import SearchByCountry from "./components/SearchByCountry";
+import ActionList from "./components/ActionList";
 
 const initialState = {
   countryList: [],
   countryFilteredByRegion: [],
+  countryListByName: [],
   filterByRegion: "",
 };
 
@@ -18,7 +21,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <FilterByRegione />
+        <ActionList />
         <CountryList />
       </div>
     </Provider>
