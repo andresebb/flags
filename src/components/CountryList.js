@@ -8,10 +8,17 @@ const CountryList = () => {
   const dispatch = useDispatch();
 
   //Asi nos traemos con redux el initialState que esta en app.js
-  const countryList = useSelector((state) => state.countryList);
-  console.log("el estado global es", countryList);
+  /*   const countryList = useSelector((state) => state.countryList); */
+  /* console.log("el estado global es", countryList); */
 
   /*   const [countryList, setCountryList] = useState([]); */
+
+  const countryList = useSelector((state) => {
+    if (state.filterByRegion !== "") {
+      return state.countryFilteredByRegion;
+    }
+    return state.countryList;
+  });
 
   useEffect(() => {
     fetch("https://restcountries.eu/rest/v2/all/")
@@ -19,11 +26,8 @@ const CountryList = () => {
         return response.json();
       })
       .then((list) => {
-        dispatch({
-          type: "SET_COUNTRY_LIST",
-          payload: list,
-        });
-        console.log(list.length);
+        dispatch(setCountryList(list));
+        /* console.log(list.length); */
       })
       .catch(() => {
         console.log("Lo siento amiguito, sigue intentando");
