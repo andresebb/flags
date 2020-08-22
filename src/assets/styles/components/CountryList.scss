@@ -1,8 +1,10 @@
 .country-list {
   display: grid;
   grid-row-gap: 2.3em;
+  grid-auto-flow: columns;
+  grid-column-gap: 66px;
+  grid-template-columns: repeat(auto-fill, 270px);
   background: var(--background);
-  border: 1px solid red;
-  padding: 4em 2em;
   justify-content: center;
+  padding: 3em 0;
 }

@@ -4,7 +4,7 @@ import "../assets/styles/components/CountryList.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { setCountryList } from "../actions/index";
 
-const CountryList = () => {
+const CountryList = (props) => {
   const dispatch = useDispatch();
 
   //Asi nos traemos con redux el initialState que esta en app.js
@@ -31,7 +31,7 @@ const CountryList = () => {
   });
 
   useEffect(() => {
-    fetch("https://restcountries.eu/rest/v2/all/")
+    fetch("https://restcountries.eu/rest/v2/all")
       .then((response) => {
         return response.json();
       })
