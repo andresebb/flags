@@ -20,15 +20,18 @@ const reducer = (state, action) => {
 
       /* console.log(action.payload); */
 
-      const countryFilteredByRegion = state.countryList.filter(
-        (country) => country.region === selectedContinent
-      );
+      const countryFilteredByRegion = state.countryList.filter((country) => {
+        console.log(country);
+        return country.region === selectedContinent;
+      });
+      debugger;
 
       return {
         ...state,
         countryFilteredByRegion,
         filterByRegion: selectedContinent,
       };
+      debugger;
     }
 
     case "FILTER_BY_COUNTRY_ACTION": {
